@@ -3,8 +3,7 @@
 import os
 import tinify
 
-# wangzhe--hr1uWvMOr3Cf0tbc_j6zDdOyGJxwlbp0
-tinify.key = "hr1uWvMOr3Cf0tbc_j6zDdOyGJxwlbp0"
+tinify.key = ""
 
 rootDir = os.path.dirname(__file__)
 sourceDir = rootDir + "/uncompressed/"

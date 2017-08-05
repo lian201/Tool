@@ -1,14 +1,15 @@
+#!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 
 import os
-import Config
 import tinify
+import Config
 
 tinify.key = Config.pinypng_key
 
 rootDir = os.path.dirname(__file__)
-sourceDir = rootDir + "/uncompressed/"
-saveDir = rootDir + "/compressed/"
+sourceDir = "/Users/zhe/Documents/_tinypng_file/uncompressed/"
+saveDir = "/Users/zhe/Documents/_tinypng_file/compressed/"
 
 for root, dirs, files in os.walk(sourceDir):
     size = files.__len__()

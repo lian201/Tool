@@ -1,8 +1,9 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 import os
-import Config
 from qiniu import Auth, put_file, etag
+import Config
 
 # ak sk
 access_key = Config.qiniu_ak
@@ -18,7 +19,7 @@ base_url = Config.qiniu_base_url
 bucket_name = Config.qiniu_bucket_name
 
 # 根目录
-rootDir = os.path.dirname(__file__) + "/up_file/"
+rootDir = "/Users/zhe/Documents/_qiniu_upfile/"
 
 for root, dirs, files in os.walk(rootDir):
     size = files.__len__()

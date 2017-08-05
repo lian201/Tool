@@ -1,9 +1,10 @@
 # -*- coding:utf-8 -*-
 
 import os
+import Config
 import tinify
 
-tinify.key = ""
+tinify.key = Config.pinypng_key
 
 rootDir = os.path.dirname(__file__)
 sourceDir = rootDir + "/uncompressed/"

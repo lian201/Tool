@@ -1,20 +1,21 @@
 # -*- coding: utf-8 -*-
 
 import os
+import Config
 from qiniu import Auth, put_file, etag
 
 # ak sk
-access_key = ''
-secret_key = ''
+access_key = Config.qiniu_ak
+secret_key = Config.qiniu_sk
 
 # 构建鉴权对象
 q = Auth(access_key, secret_key)
 
 # 外链前缀
-base_url = ""
+base_url = Config.qiniu_base_url
 
 # 要上传的空间名
-bucket_name = ""
+bucket_name = Config.qiniu_bucket_name
 
 # 根目录
 rootDir = os.path.dirname(__file__) + "/up_file/"

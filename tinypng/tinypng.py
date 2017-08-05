@@ -76,8 +76,8 @@ def compressedFolder(dir):
 
 
 @click.command()
-@click.option("-f", "--file", default=None, help="对单文件操作")
-@click.option("-d", "--dir", default=None, help="对文件夹操作")
+@click.option("-f", "--file", default=None, help="处理单文件")
+@click.option("-d", "--dir", default=None, help="处理文件夹里所有文件")
 def run(file, dir):
     if (file is not None):
         compressedFile(file)

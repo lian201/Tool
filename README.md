@@ -44,7 +44,16 @@ pip3 install click
 
 > 获取自己的外链前缀和空间名
 
-1.把需要上传的图片放在up_file文件夹里
+- 默认配置 python3 qiniu_upload.py
 
-2.执行qiniu_update.py
+    1.把需要上传的图片放在up_file文件夹里
 
+    2.执行qiniu_update.py
+
+- 上传单文件
+
+    python3 qiniu_update.py -f /Users/zhe/Pictures/a.png
+    
+- 上传文件夹里所有文件
+
+    python3 qiniu_update.py -d /Users/zhe/Pictures

@@ -40,6 +40,11 @@ pip3 install click
 ### qiniu
 上传图片到七牛云存储
 
+```
+安装qiniu
+pip install qiniu
+```
+
 > 在七牛申请ak，sk
 
 > 获取自己的外链前缀和空间名

@@ -14,14 +14,22 @@ secret_key = Config.qiniu_sk
 q = Auth(access_key, secret_key)
 
 # 外链前缀
-base_url = Config.qiniu_base_url
+base_url_img = Config.qiniu_base_url_img
+base_url_file = Config.qiniu_base_url_file
 
 # 要上传的空间名
-bucket_name = Config.qiniu_bucket_name
-
+bucket_name_img = Config.qiniu_bucket_name_img
+bucket_name_file = Config.qiniu_bucket_name_file
 
 # 上传
 def upload(name, sourceFile):
+    filename, filetype = os.path.splitext(name)
+    if (filetype == ".png" or filetype == ".jpg" or filetype == ".jpeg"):
+        bucket_name = bucket_name_img
+        base_url = base_url_img
+    else:
+        bucket_name = bucket_name_file
+        base_url = base_url_file
     token = q.upload_token(bucket_name, name, 3600)
     ret, info = put_file(token, name, sourceFile)
     if (info.status_code == 200):

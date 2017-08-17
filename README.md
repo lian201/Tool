@@ -2,6 +2,7 @@
 Python写的工具类
 
 
+
 ### tinypng
 使用tinypng压缩png图片
 
@@ -39,6 +40,7 @@ pip3 install click
     
     eg: python3 tinypng.py -d /Users/zhe/Pictures  在Pictures下生成_tinypng文件夹存放处理好的图片
     
+
 
 ### qiniu
 上传图片到七牛云存储

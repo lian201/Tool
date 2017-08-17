@@ -58,6 +58,7 @@ pip install qiniu
         qiniu_base_url_file = "xxxx"
         qiniu_bucket_name_img = "imgs"
         qiniu_bucket_name_file = "files"
+        
 
 > 在七牛申请ak，sk
 

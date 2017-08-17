@@ -52,13 +52,14 @@ pip install qiniu
 
 在同目录下创建Config.py文件，在文件中写入所需配置项
 
-    eg: qiniu_ak = "xxxx"
-        qiniu_sk = "xxxx"
-        qiniu_base_url_img = "xxxx"
-        qiniu_base_url_file = "xxxx"
-        qiniu_bucket_name_img = "imgs"
-        qiniu_bucket_name_file = "files"
-        
+```
+qiniu_ak = "xxxx"
+qiniu_sk = "xxxx"
+qiniu_base_url_img = "xxxx"
+qiniu_base_url_file = "xxxx"
+qiniu_bucket_name_img = "imgs"
+qiniu_bucket_name_file = "files"   
+```
 
 > 在七牛申请ak，sk
 

@@ -14,6 +14,9 @@ pip3 install --upgrade tinify
 
 pip3 install click
 ```
+在同目录下创建Config.py文件，在文件中写入key
+
+    eg: pinypng_key = "xxxx"
 
 
 - 默认配置 python3 tinypng.py
@@ -44,6 +47,13 @@ pip3 install click
 安装qiniu
 pip install qiniu
 ```
+
+在同目录下创建Config.py文件，在文件中写入所需配置项
+
+    eg: qiniu_ak = "xxxx"
+        qiniu_sk = "xxxx"
+        qiniu_base_url = "xxxx"
+        qiniu_bucket_name = "xxxx"
 
 > 在七牛申请ak，sk
 

@@ -43,7 +43,7 @@ pip3 install click
 
 
 ### qiniu
-上传图片到七牛云存储
+上传文件到七牛云存储，图片上传至imgs空间，文件上传至files空间
 
 ```
 安装qiniu
@@ -54,8 +54,10 @@ pip install qiniu
 
     eg: qiniu_ak = "xxxx"
         qiniu_sk = "xxxx"
-        qiniu_base_url = "xxxx"
-        qiniu_bucket_name = "xxxx"
+        qiniu_base_url_img = "xxxx"
+        qiniu_base_url_file = "xxxx"
+        qiniu_bucket_name_img = "imgs"
+        qiniu_bucket_name_file = "files"
 
 > 在七牛申请ak，sk
 

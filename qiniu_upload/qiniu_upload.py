@@ -6,7 +6,7 @@ import click
 from qiniu import Auth, put_file, etag
 
 # ak sk
-from qiniu_upload import Config
+import Config
 
 access_key = Config.qiniu_ak
 secret_key = Config.qiniu_sk
@@ -22,42 +22,43 @@ base_url_file = Config.qiniu_base_url_file
 bucket_name_img = Config.qiniu_bucket_name_img
 bucket_name_file = Config.qiniu_bucket_name_file
 
+
 # 上传
-def upload(name, sourceFile):
+def upload(name, source_file):
     filename, filetype = os.path.splitext(name)
-    if (filetype == ".png" or filetype == ".jpg" or filetype == ".jpeg"):
+    if filetype == ".png" or filetype == ".jpg" or filetype == ".jpeg":
         bucket_name = bucket_name_img
         base_url = base_url_img
     else:
         bucket_name = bucket_name_file
         base_url = base_url_file
     token = q.upload_token(bucket_name, name, 3600)
-    ret, info = put_file(token, name, sourceFile)
-    if (info.status_code == 200):
+    ret, info = put_file(token, name, source_file)
+    if info.status_code == 200:
         assert ret['key'] == name
-        assert ret['hash'] == etag(sourceFile)
+        assert ret['hash'] == etag(source_file)
         print("上传完成，外链url为--  %s" % (base_url + name))
     else:
         print("上传失败")
 
 
 # 遍历文件夹
-def walkFolder(rootDir):
-    for root, dirs, files in os.walk(rootDir):
+def walk_folder(root_dir):
+    for root, dirs, files in os.walk(root_dir):
         size = files.__len__()
         count = 1
         for name in files:
-            if (name.startswith(".")):
+            if name.startswith("."):
                 size -= 1
                 continue
-            sourceFile = rootDir + "/" + name
+            source_file = root_dir + "/" + name
             print("正在上传%s  %d/%d" % (name, count, size))
-            upload(name, sourceFile)
+            upload(name, source_file)
 
 
 # 上传单文件
-def uploadFile(file):
-    if (not os.path.isfile(file)):
+def upload_file(file):
+    if not os.path.isfile(file):
         print("这不是文件")
         return
     basename = os.path.basename(file)
@@ -66,28 +67,28 @@ def uploadFile(file):
 
 
 # 上传文件夹里所有文件
-def uploadFolder(dir):
-    if (not os.path.isdir(dir)):
+def upload_folder(dir):
+    if not os.path.isdir(dir):
         print("这不是文件夹")
         return
-    walkFolder(dir)
+    walk_folder(dir)
 
 
 # 没有任何参数，默认对预定文件夹操作
 def default():
-    rootDir = "/Users/zhe/Documents/_qiniu_upfile"
-    walkFolder(rootDir)
+    root_dir = "/Users/zhe/Documents/_qiniu_upfile"
+    walk_folder(root_dir)
 
 
 @click.command()
 @click.option("-f", "--file", default=None, help="上传单文件")
 @click.option("-d", "--dir", default=None, help="上传文件夹里所有文件")
 def run(file, dir):
-    if (file is not None):
-        uploadFile(file)
+    if file is not None:
+        upload_file(file)
         pass
-    elif (dir is not None):
-        uploadFolder(dir)
+    elif dir is not None:
+        upload_folder(dir)
         pass
     else:
         default()
@@ -95,5 +96,5 @@ def run(file, dir):
 
 
 # 程序入口
-if (__name__ == "__main__"):
+if __name__ == "__main__":
     run()

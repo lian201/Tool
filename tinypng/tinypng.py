@@ -4,7 +4,8 @@
 import os
 import tinify
 import click
-import Config
+
+from tinypng import Config
 
 tinify.key = Config.pinypng_key
 

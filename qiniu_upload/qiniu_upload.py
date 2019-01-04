@@ -4,9 +4,10 @@
 import os
 import click
 from qiniu import Auth, put_file, etag
-import Config
 
 # ak sk
+from qiniu_upload import Config
+
 access_key = Config.qiniu_ak
 secret_key = Config.qiniu_sk
 

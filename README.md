@@ -78,3 +78,18 @@ qiniu_bucket_name_file = "files"
 - 上传文件夹里所有文件
 
     python3 qiniu_update.py -d /Users/zhe/Pictures
+
+
+### smms
+> https://sm.ms/ 一个免费图床
+
+> API地址  https://sm.ms/doc/
+
+- 上传单文件
+
+    python3 smms_upload.py -f /Users/zhe/Pictures/a.png
+    
+- 上传文件夹里所有文件
+
+    python3 smms_upload.py -d /Users/zhe/Pictures/
+
